@@ -52,6 +52,12 @@ export const pdtReducer = (state, action) => {
           productItems: [...state.productItems],
         };
       }
+      case "submitProduct":
+        return {
+          ...state,
+          productItems: []
+        };
+      case "decreaseProduct":
     default:
       return state;
   }

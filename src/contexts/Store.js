@@ -21,12 +21,15 @@ const StateProvider = ({ children }) => {
   const removeProduct = (payload) => {
     dispatch({ type: "removeProduct", payload });
   };
-
+  const submitProduct = (payload) => {
+    dispatch({ type: "submitProduct", payload });
+  };
   const Values = {
     removeProduct,
     addProduct,
     increaseProduct,
     decreaseProduct,
+    submitProduct,
 
     ...state,
   };

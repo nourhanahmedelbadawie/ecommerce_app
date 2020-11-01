@@ -10,7 +10,7 @@ import "./submitOrder.scss";
 
 function SubmitOrder() {
   // get total price
-  const { productItems } = useContext(Store);
+  const { productItems ,submitProduct } = useContext(Store);
 
   const getTotalPrice = (arr) => {
     let total = 0;
@@ -63,6 +63,7 @@ function SubmitOrder() {
       "your Order have submitted successfuly",
       "success"
     ).then(() => {
+      submitProduct()
       actions.resetForm({
         values: {
           name: "",
@@ -125,7 +126,12 @@ function SubmitOrder() {
             <p>
               {" "}
               <mark className="submittotal">
-                Total Price: <span>{getTotalPrice(productItems)}</span> ${" "}
+                Total Price: <span>
+                  
+                  { productItems.length > 0 ?
+                  getTotalPrice(productItems)
+                :
+                0 }</span> ${" "}
               </mark>
             </p>
           </Col>

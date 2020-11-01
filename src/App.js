@@ -161,6 +161,13 @@ const renderTextToInput=(el)=>{
                         return <Redirect to="/home" />;
                       }}
                     />
+                      <Route
+                      exact
+                      path="/ecommerce_app"
+                      render={() => {
+                        return <Redirect to="/home" />;
+                      }}
+                    />
                     <Route exact path="/submit" component={SubmitOrder}></Route>
                     <Route exact path="/order" component={TotalOrder}></Route>
                     <Route exact path="/cart" component={Cart}></Route>
