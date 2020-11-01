@@ -17,7 +17,7 @@ function Cart() {
     <div>
       <Container>
         <Row>
-        <Col className="title p-4 mb-4 mt-4 " xs="12">
+          <Col className="title p-4 mb-4 mt-4 " xs="12">
             <h2>Product view</h2>
           </Col>
           {productItems.length === 0 && (
@@ -26,7 +26,6 @@ function Cart() {
             </Col>
           )}
 
-
           {productItems.map((product, index) => {
             return (
               <Col
@@ -34,7 +33,6 @@ function Cart() {
                 className="d-flex onepdt px-2 justify-items-space-between align-items-center py-4 shopping-cart"
                 key={index}
               >
-
                 <Col className="image" xs="2">
                   <img src={product.img} alt="" />
                 </Col>

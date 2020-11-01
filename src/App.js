@@ -5,37 +5,20 @@ import NotFound from "./components/NotFound/NotFound";
 import Cart from "./components/Cart/Cart";
 import { pdtData } from "./assets/data/data";
 import { CSSTransition } from "react-transition-group";
-import "animate.css/animate.css";
-
 import SubmitOrder from "./components/SubmitOrder/submitOrder";
-
 import { ToastProvider } from "react-toast-notifications";
 import SingleProduct from "./components/SingleProduct/singleProduct";
 import { Sugar } from "react-preloaders";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect,
-  Link,
-} from "react-router-dom";
-import {
-  Col,
-  Container,
-  Row,
-  Navbar,
-  NavDropdown,
-  Form,
-  Nav,
-} from "react-bootstrap";
+import {BrowserRouter as Router,Route,Switch,Redirect,Link,} from "react-router-dom";
+import {Col,Container,Row,Navbar,NavDropdown,Form,Nav,} from "react-bootstrap";
 import { Store } from "./contexts/Store";
-
+import "animate.css/animate.css";
 import "./App.scss";
 
 function App() {
   const { productItems } = useContext(Store);
 
-  // ===================================Search
+  // Search form
   const [teams, setTeams] = useState(pdtData);
   const [search, setSearch] = useState("");
   const [focus, setfocus] = useState(false);
@@ -58,12 +41,10 @@ function App() {
     setSearch(e.target.value);
     setTeams(test);
   };
-const renderTextToInput=(el)=>{
-  document.getElementById('searchInput').value=el.name
-  setSearch(el.name)
-
-
-}
+  const renderTextToInput = (el) => {
+    document.getElementById("searchInput").value = el.name;
+    setSearch(el.name);
+  };
   return (
     <ToastProvider>
       <React.Fragment>
@@ -98,59 +79,68 @@ const renderTextToInput=(el)=>{
                               Sign Out
                             </NavDropdown.Item>
                           </NavDropdown>
-<div>
-                        <Form inline
->
-                          <input
-                            autoComplete="off"
-                            type="text"
-                            placeholder="Search"
-                            className="mr-sm-2"
-                            value={search}
-                            onChange={handleChange}
-                            onFocus={handleInputFocus}
-                            onBlur={()=>{ setTimeout(()=> { handleInputBlur() }, 150);
-                            }}
-                            id="searchInput"
-                          />
+                          <div>
+                            <Form inline>
+                              <input
+                                autoComplete="off"
+                                type="text"
+                                placeholder="Search"
+                                className="mr-sm-2"
+                                value={search}
+                                onChange={handleChange}
+                                onFocus={handleInputFocus}
+                                onBlur={() => {
+                                  setTimeout(() => {
+                                    handleInputBlur();
+                                  }, 150);
+                                }}
+                                id="searchInput"
+                              />
 
-                          {focus === true && (
-                                  <CSSTransition in={focus} timeout={200} classNames="my-node">
-
-                            <ul id="searchList" className="animate__fadeIn animate__animated animated" >
-                              {teams.length === 0 ? (
-                                <li>No item</li>
-                              ) : (
-                                teams.map((item, index) => {
-                                  return (
-                                    <li
-                                      key={index}
-                                      onClick={()=>{handleInputBlur();renderTextToInput(item)} }
-                                    >
-                                      <Link to={`/product/${item.id}`}>
-                                        {item.name}
-                                      </Link>
-                                    </li>
-                                  );
-                                })
+                              {focus === true && (
+                                <CSSTransition
+                                  in={focus}
+                                  timeout={200}
+                                  classNames="my-node"
+                                >
+                                  <ul
+                                    id="searchList"
+                                    className="animate__fadeIn animate__animated animated"
+                                  >
+                                    {teams.length === 0 ? (
+                                      <li>No item</li>
+                                    ) : (
+                                      teams.map((item, index) => {
+                                        return (
+                                          <li
+                                            key={index}
+                                            onClick={() => {
+                                              handleInputBlur();
+                                              renderTextToInput(item);
+                                            }}
+                                          >
+                                            <Link to={`/product/${item.id}`}>
+                                              {item.name}
+                                            </Link>
+                                          </li>
+                                        );
+                                      })
+                                    )}
+                                  </ul>
+                                </CSSTransition>
                               )}
-                            </ul>
-                            </CSSTransition>
+                            </Form>
 
-                          )}
-                        </Form>
-                        
-                        <NavDropdown title="" id="cart">
-                            <NavDropdown.Item>
-                              <Link to="/cart">
-                                Show product{" "}
-                                <mark> ({productItems.length})</mark>
-                              </Link>
-                            </NavDropdown.Item>
-                          </NavDropdown>
+                            <NavDropdown title="" id="cart">
+                              <NavDropdown.Item>
+                                <Link to="/cart">
+                                  Show product{" "}
+                                  <mark> ({productItems.length})</mark>
+                                </Link>
+                              </NavDropdown.Item>
+                            </NavDropdown>
                           </div>
                         </Nav>
-
                       </Navbar.Collapse>
                     </Navbar>
                   </Col>
@@ -165,7 +155,7 @@ const renderTextToInput=(el)=>{
                         return <Redirect to="/home" />;
                       }}
                     />
-                      <Route
+                    <Route
                       exact
                       path="/ecommerce_app"
                       render={() => {
@@ -183,8 +173,6 @@ const renderTextToInput=(el)=>{
                     ></Route>
 
                     <Route path="*" exact={true} component={NotFound} />
-
-                    {/* ====================================== */}
                   </Switch>
                 </Col>
               </Row>
@@ -198,7 +186,6 @@ const renderTextToInput=(el)=>{
             className="load"
             animation="slide"
           />
-          {/* ====================================== */}
         </Router>
       </React.Fragment>
     </ToastProvider>

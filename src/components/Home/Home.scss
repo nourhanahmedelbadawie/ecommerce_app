@@ -1,13 +1,10 @@
 @import "../../style/variables.scss";
-@import "../../style/mixins.scss";
 
-// ============================Start Home Page=====================================
 // header
 .head-text {
   text-align: left;
 }
-img.head-img img {
-}
+
 img.head-img {
   width: 500px;
 }
@@ -110,6 +107,7 @@ td {
   left: 22px;
   background-color: #495057;
 }
+//product items
 .listItem {
   justify-content: space-between;
   width: 70% !important;

@@ -10,7 +10,9 @@ import "./submitOrder.scss";
 
 function SubmitOrder() {
   // get total price
-  const { productItems ,submitProduct } = useContext(Store);
+  const { productItems, submitProduct } = useContext(Store);
+    // Model to pop up MAP
+  const [show, setShow] = useState(false);
 
   const getTotalPrice = (arr) => {
     let total = 0;
@@ -20,7 +22,7 @@ function SubmitOrder() {
     return total;
   };
 
-  // Form details
+  // Form validation with Formik 
   const initialValues = {
     name: "",
     phone: "",
@@ -63,7 +65,7 @@ function SubmitOrder() {
       "your Order have submitted successfuly",
       "success"
     ).then(() => {
-      submitProduct()
+      submitProduct();
       actions.resetForm({
         values: {
           name: "",
@@ -112,8 +114,7 @@ function SubmitOrder() {
     }
   );
   Geocode.setLanguage("en");
-  // Model to pop up MAP
-  const [show, setShow] = useState(false);
+
 
   return (
     <div>
@@ -126,12 +127,11 @@ function SubmitOrder() {
             <p>
               {" "}
               <mark className="submittotal">
-                Total Price: <span>
-                  
-                  { productItems.length > 0 ?
-                  getTotalPrice(productItems)
-                :
-                0 }</span> ${" "}
+                Total Price:{" "}
+                <span>
+                  {productItems.length > 0 ? getTotalPrice(productItems) : 0}
+                </span>{" "}
+                ${" "}
               </mark>
             </p>
           </Col>

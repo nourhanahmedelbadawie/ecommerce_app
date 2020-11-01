@@ -15,6 +15,9 @@ import "./Home.scss";
 function Home() {
   // using Toast in notifications
   const { addToast } = useToasts();
+    // update cart items in store
+  const { addProduct, productItems, increaseProduct } = useContext(Store);
+  
   const popUpAlert = (content) => {
     addToast(content, {
       appearance: "success",
@@ -22,8 +25,8 @@ function Home() {
     });
   };
 
-  // update cart items in store
-  const { addProduct, productItems, increaseProduct } = useContext(Store);
+
+//repace icon view on select prodict
 
   const isInCart = (product) => {
     return !!productItems.find((item) => item.id === product.id);
