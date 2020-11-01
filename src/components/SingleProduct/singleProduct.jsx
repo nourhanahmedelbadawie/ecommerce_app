@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Store } from "../../contexts/Store";
 
 import { pdtData } from "../../assets/data/data";
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { Container, Row, Col, Card ,Carousel } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faShoppingCart,
@@ -33,16 +33,44 @@ function SingleProduct(props) {
     <div>
       <Container className="bg mb-4">
         <Row>
-        <Col className="title p-4 mb-4 mt-4 " xs='12'>
+        <Col className="title p-4 mb-4 mt-4 align-self-center" md="8" xs='12'>
             <h2>Product view</h2>
           </Col>
-          <Col  xs='12'>
+      
+          <Col  xs='12'>  
+      
+          <Carousel controls={false}>
+  <Carousel.Item interval={null}>
+    <img
+      className="d-block  "
+      src={pdtData[productId].img} 
+      alt="First slide"
+    />
+ 
+  </Carousel.Item>
+  <Carousel.Item interval={null}>
+    <img
+      className="d-block  "
+      src={pdtData[productId].img} 
+      alt="Third slide"
+    />
+    
+  </Carousel.Item>
+  <Carousel.Item interval={null}>
+    <img
+      className="d-block mr-auto"
+      src={pdtData[productId].img} 
+      alt="Third slide"
+    
+    />
+  
+  </Carousel.Item>
+</Carousel>  
 
-          <Col md="4" className="mb-4 products" xs="12">
-            <Card style={{ width: "18rem" }}>
+          <Col className="mb-4 products singlepdt" xs="12">
+            <Card >
           
 
-              <Card.Img variant="top" src={pdtData[productId].img} />
               <Card.Body>
                 <Card.Title>{pdtData[productId].name}</Card.Title>
 
@@ -81,7 +109,10 @@ function SingleProduct(props) {
                     )}
                   </div>
                 </Card.Text>
+
               </Card.Body>
+              <Card.Body>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since  </Card.Body>
+
             </Card>
           </Col>
           </Col>

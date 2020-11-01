@@ -5,6 +5,7 @@ import NotFound from "./components/NotFound/NotFound";
 import Cart from "./components/Cart/Cart";
 import { pdtData } from "./assets/data/data";
 import { CSSTransition } from "react-transition-group";
+import "animate.css/animate.css";
 
 import SubmitOrder from "./components/SubmitOrder/submitOrder";
 
@@ -97,16 +98,7 @@ const renderTextToInput=(el)=>{
                               Sign Out
                             </NavDropdown.Item>
                           </NavDropdown>
-
-                          <NavDropdown title="Cart" id="cart">
-                            <NavDropdown.Item>
-                              <Link to="/cart">
-                                Show product{" "}
-                                <mark> ({productItems.length})</mark>
-                              </Link>
-                            </NavDropdown.Item>
-                          </NavDropdown>
-                        </Nav>
+<div>
                         <Form inline
 >
                           <input
@@ -125,7 +117,7 @@ const renderTextToInput=(el)=>{
                           {focus === true && (
                                   <CSSTransition in={focus} timeout={200} classNames="my-node">
 
-                            <ul id="searchList" >
+                            <ul id="searchList" className="animate__fadeIn animate__animated animated" >
                               {teams.length === 0 ? (
                                 <li>No item</li>
                               ) : (
@@ -147,6 +139,18 @@ const renderTextToInput=(el)=>{
 
                           )}
                         </Form>
+                        
+                        <NavDropdown title="" id="cart">
+                            <NavDropdown.Item>
+                              <Link to="/cart">
+                                Show product{" "}
+                                <mark> ({productItems.length})</mark>
+                              </Link>
+                            </NavDropdown.Item>
+                          </NavDropdown>
+                          </div>
+                        </Nav>
+
                       </Navbar.Collapse>
                     </Navbar>
                   </Col>

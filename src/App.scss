@@ -90,16 +90,39 @@ nav {
     letter-spacing: -3px;
     font-size: 2rem;
 }
+.dropdown.nav-item {
+
+    display: flex;
+    align-items: center;
+
+}
+
 .dropdown.nav-item a{
     font-weight: bold;
 
 }
 .dropdown-toggle:empty::after {
-    margin-left: 47px;
-    color: #7f7f7f;
+    margin-left: 25px;
+    font-size: 23px;
+    color: #e96e28;
+}
+#profileImg::after{
+    margin-left: 43px;
 }
 .dropdown-menu{
     top:100%
+}
+.navbar-nav , .navbar-nav > div{
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.navbar-nav 
+{
+    width: 100%;
+}
+.navbar-nav > div {
+    width: 39%;
 }
 .navbar-brand a {
     color:$prColor !important
@@ -123,6 +146,36 @@ nav {
 }
 }
 // ============================Start=====================================
+
+#cart {
+        position:relative;
+        padding: 0px;
+    }    
+    #cart:before {
+        font-family: "Font Awesome\ 5 Free";
+
+        font-weight: 900; content: "\f218";
+
+        display: inline-block;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+      
+        left: -2px;
+        position: absolute;
+        top: -14px;
+        
+    font-size: 23px;
+    color: #e96e28;
+
+     }
+
+ a#cart  +  .dropdown-menu {
+        top: 73%;
+        left: -196%;
+        padding: 2px;
+     }
 .form-inline{
     position: relative;
     input.mr-sm-2{
@@ -143,6 +196,7 @@ nav {
         box-shadow: 0px 2px 2px #c2c2c2;
         width: 81%;
         right: 11%;
+  animation-duration: 0.2s;
         li{
             margin-top: 2px;
             border-bottom: 1px solid #f4f5f5;

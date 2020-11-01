@@ -126,6 +126,55 @@ td {
     }
   }
 }
+.carousel-item{
+  img{
+    margin: 0 auto;
+  }
+}
+.carousel-indicators{
+  position: absolute;
+  right: 0;
+  bottom: -70px;
+  li {
+
+    background-color: #e96e28 !important;
+  }
+} 
+
+.singlepdt {
+  margin-top: 60px;
+  .card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
+    width: 50%;
+    margin: 0 auto;
+  }
+  .card{
+    border: none !important;
+    box-shadow: none !important;
+  }
+}
 .gridItem {
   border: 22px solid blue;
+}
+@media screen and (max-width:600px){
+
+  .grid{
+    grid-template-columns: 1fr;
+
+    > div{
+      margin: 0 auto;
+    }
+  }
+}
+@media screen and (max-width:1000px) and (min-width:701px){
+
+  .products  .grid{
+    grid-template-columns: 1fr 1fr;
+
+    > div{
+      margin: 0 auto;
+    }
+  }
 }

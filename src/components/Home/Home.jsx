@@ -75,10 +75,10 @@ function Home() {
                         alt=""
                       />
                     </div>
-                    <div className="col-md-5 offset-1 head-text ">
+                    <div className="col-md-5 offset-1 head-text animate__fadeIn animate__animated animated ">
                       <h6>BEST QUALITY PRODUCTS</h6>
                       <h1>Join the Organic Movement!</h1>
-                      <p className="mb-4">
+                      <p className="mb-4 animate__fadeIn animate__animated animated">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         Sapien. Lorem ipsum dolor sit amet, consectetur
                         adipiscing elit. Sapien.
